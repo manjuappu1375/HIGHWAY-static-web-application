@@ -1,15 +1,17 @@
-name: Deploy satic web site
+name: Deploy Static Website
+
 on: push
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repositery
-        uses: action/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: setup pages
-        uses: action/configure-pages@v4
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
