@@ -1,24 +1,22 @@
-name: Deploy Static Website
+name: Deploy
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
   pages: write
   id-token: write
-  
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-      
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v4
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - uses: actions/deploy-pages@v4
