@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: highway-static-web-app
+  annotations:
+    github.com/project-slug: manjuappu1375/HIGHWAY-static-web-application
+spec:
+  type: website
+  lifecycle: production
+  owner: guests
